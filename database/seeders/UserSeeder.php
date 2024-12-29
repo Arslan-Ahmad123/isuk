@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             'first_name' => 'Super Admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('12345678'),
-            'role_id' =>  Role::first()->id,
+            'role_id' =>  '1',
             'status' => 1
         ]);
     }
