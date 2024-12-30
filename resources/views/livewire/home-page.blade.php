@@ -481,8 +481,8 @@
         <div class="container py-5">
             <h2 class="text-darkblue text-center mb-4 fw-bold" style="font-size: 2rem;">Top Destinations</h2>
             <p class="lead text-darkblue text-center mb-5" style="font-size: 1rem;">
-                Aspiring to live abroad? The world out there is quite big. And the opportunities are endless. Explore
-                the plethora of possibilities around you.
+                Dreaming of an international life? The world is vast and full of opportunities. Discover the endless
+                possibilities awaiting you.
             </p>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
@@ -491,8 +491,8 @@
                             <h5 class="fw-bold">USA</h5>
                         </div>
                         <div class="card-body bg-dark">
-                            <p class="card-text fw-bold">USA is considered the most powerful country in the world.
-                                Known for innovations and entrepreneurship, it is a hub for opportunities.</p>
+                            <p class="card-text fw-bold">The USA is renowned for its innovation and entrepreneurial
+                                spirit, making it a land of vast opportunities and global influence.</p>
                         </div>
                     </div>
                 </div>
@@ -502,8 +502,8 @@
                             <h5 class="fw-bold">United Kingdom</h5>
                         </div>
                         <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
-                            <p class="card-text fw-bold">The UK has the second-largest cluster of educational
-                                institutes, with world-renowned universities like Oxford and Cambridge.</p>
+                            <p class="card-text fw-bold">The UK boasts a prestigious array of educational institutions,
+                                including globally acclaimed universities such as Oxford and Cambridge.</p>
                         </div>
                     </div>
                 </div>
@@ -513,8 +513,8 @@
                             <h5 class="fw-bold">Canada</h5>
                         </div>
                         <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
-                            <p class="card-text fw-bold">Known for its high standard of living and tech industries,
-                                Canada is a favorite immigration destination for many.</p>
+                            <p class="card-text fw-bold">Canada is renowned for its excellent quality of life and
+                                thriving tech sector, making it a top choice for immigrants.</p>
                         </div>
                     </div>
                 </div>
@@ -524,8 +524,9 @@
                             <h5 class="fw-bold">New Zealand</h5>
                         </div>
                         <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
-                            <p class="card-text fw-bold">Known for education and retirement, New Zealand offers
-                                cultural richness and stunning scenery, making it a top choice.</p>
+                            <p class="card-text fw-bold">New Zealand is celebrated for its excellent education system
+                                and retirement options, offering a blend of cultural richness and breathtaking
+                                landscapes.</p>
                         </div>
                     </div>
                 </div>
@@ -535,8 +536,9 @@
                             <h5 class="fw-bold">Australia</h5>
                         </div>
                         <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
-                            <p class="card-text fw-bold">Australia excels in education, retirement, and travel. It’s a
-                                second home to immigrants worldwide.</p>
+                            <p class="card-text fw-bold">Australia is renowned for its top-tier education, excellent
+                                retirement options, and vibrant travel experiences, making it a favored destination for
+                                immigrants globally.</p>
                         </div>
                     </div>
                 </div>
@@ -546,8 +548,9 @@
                             <h5 class="fw-bold">Europe</h5>
                         </div>
                         <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
-                            <p class="card-text fw-bold">Europe’s rich history, cultural diversity, and breathtaking
-                                landscapes make it a must-visit and live destination.</p>
+                            <p class="card-text fw-bold">Europe offers a unique blend of historical richness, cultural
+                                diversity, and stunning landscapes, making it an ideal destination for both travel and
+                                living.</p>
                         </div>
                     </div>
                 </div>
@@ -563,11 +566,13 @@
             <div class="row w-100">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <h2 class="fw-bold mb-4" style="font-size: 2rem;">
-                        Know the Ways, Show the Ways, Lead the Ways...!
+                        Discover the Paths, Illuminate the Paths, Guide the Paths...!
                     </h2>
                     <p class="mb-5" style="font-size: 1rem; line-height: 1.8;">
-                        One place where you can find solutions for all your abroad life requirements and fulfill your
-                        abroad dreams.
+                        Your one-stop solution for all your international living needs and aspirations.
+                    </p>
+                    <p class="mb-5" style="font-size: 1rem; line-height: 1.8;">
+                        Your comprehensive resource for achieving your international living aspirations and dreams.
                     </p>
                     <a href="{{ route('contact') }}" class="btn-custom-without-hover2" style="font-size: 1rem;">
                         Get Consultation
@@ -587,11 +592,11 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="ISUK Logo" class="img-fluid mb-3">
                     <p class="text-white mb-2" style="font-size: 1rem;">
-                        We assist you in finding the best destinations to fulfill your dreams.
+                        We help you discover the ideal destinations to achieve your aspirations.
                     </p>
                     <p class="text-white" style="font-size: 1rem;">
-                        With partnerships in over 65 countries, we ensure your journey is seamless and your goals are
-                        achieved with excellence.
+                        Partnering with over 65 countries, we guarantee a smooth journey and help you achieve your goals
+                        with excellence.
                     </p>
                 </div>
                 <!-- Contact Section -->
