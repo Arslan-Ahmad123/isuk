@@ -140,6 +140,24 @@
             padding: 10px 20px;
         }
 
+        @media (max-width: 768px) {
+
+            .btn-custom-hover,
+            .btn-custom-without-hover,
+            .btn-custom-without-hover2 {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .btn-custom-hover,
+            .btn-custom-without-hover,
+            .btn-custom-without-hover2 {
+                font-size: 0.75rem;
+            }
+        }
+
         .card-img-top {
             height: 180px;
             object-fit: cover;
@@ -294,12 +312,12 @@
                             style="background-color: rgba(44, 39, 82,0.3);"></div>
                     </div>
                     <div class="carousel-caption">
-                        <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Travel | Study | Work | Live
-                        </h2>
-                        <p class="mt-4" style="font-size: 1.5vw; font-weight: 700;">Bridging the gap between your
-                            dreams and reality</p>
+                        <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Explore | Learn | Grow |
+                            Achieve</h2>
+                        <p class="mt-4" style="font-size: 2vw; font-weight: 700;">Turning aspirations into
+                            achievements</p>
                         <a href="{{ route('services') }}" class="btn-custom-without-hover2"
-                            style="font-size: 1rem;">Discover More</a>
+                            style="font-size: 1rem;">Find Out More</a>
                     </div>
                 </div>
                 <div class="carousel-item h-100">
@@ -309,10 +327,10 @@
                             style="background-color: rgba(44, 39, 82,0.3);"></div>
                     </div>
                     <div class="carousel-caption">
-                        <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Study Abroad</h2>
-                        <p style="font-size: 1.5vw; font-weight: 500;" class="mt-4">Open your eyes to new
-                            possibilities</p>
-                        <button class="btn-custom-without-hover2" style="font-size: 1rem;">Learn More</button>
+                        <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Pursue Education Abroad</h2>
+                        <p class="mt-4" style="font-size: 1.5vw; font-weight: 500;">Unlock a world of possibilities
+                        </p>
+                        <button class="btn-custom-without-hover2" style="font-size: 1rem;">Discover More</button>
                     </div>
                 </div>
                 <div class="carousel-item h-100">
@@ -322,14 +340,16 @@
                             style="background-color: rgba(44, 39, 82,0.5);"></div>
                     </div>
                     <div class="carousel-caption">
-                        <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Work in the West</h2>
-                        <p style="font-size: 1.5vw; font-weight: 500;" class="mt-2">Adding wings to your career</p>
+                        <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Build Your Career Overseas</h2>
+                        <p class="mt-2" style="font-size: 1.5vw; font-weight: 500;">Step up to global opportunities
+                        </p>
                         <button class="btn-custom-without-hover2" style="font-size: 1rem;">Learn More</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- About Us -->
     <section id="about-us" class="py-5">
@@ -341,18 +361,21 @@
                             class="img-fluid rounded">
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <h2 class="mb-4 text-darkblue" style="font-size: 2rem; font-weight: bold;">About ISUK</h2>
-                    <p class="lead mb-4" style="font-size: 1.2rem; font-weight: 600;">Bridging the gap between your
-                        dreams & reality...!</p>
-                    <p class="mb-4" style="font-size: 1rem;">Are you planning to settle abroad? Sounds great!</p>
-                    <p class="mb-4" style="font-size: 1rem;">We are here to guide you. ISUK is a pioneering
-                        consultancy, known for providing the best guidance and counselling to make your western life
-                        dreams come true.</p>
-                    <p class="mb-4" style="font-size: 1rem;">What makes us unique is our team and goals. We dream a
-                        lot. And so, we help you not only to dream but to make your dreams a reality.</p>
+                <div class="col-md-6 mt-4 mt-md-0">
+                    <h2 class="mb-4 text-darkblue" style="font-size: 2rem; font-weight: bold;">About
+                        ISUK</h2>
+                    <p class="lead mb-4" style="font-size: 1.2rem; font-weight: 600;">Connecting your aspirations with
+                        reality...!</p>
+                    <p class="mb-4" style="font-size: 1rem;">Are you considering relocating abroad? That’s
+                        fantastic!</p>
+                    <p class="mb-4" style="font-size: 1rem;">We are here to assist you. ISUK is a leading
+                        consultancy, recognized for offering exceptional guidance and support to help you achieve your
+                        dreams of living in the West.</p>
+                    <p class="mb-4" style="font-size: 1rem;">What sets us apart is our dedicated team and our
+                        vision. We dream big, and we empower you not just to envision your goals but to turn them into
+                        reality.</p>
                     <div class="mt-4">
-                        <a href="#" class="btn-custom-hover">Know More</a>
+                        <a href="#" class="btn-custom-hover">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -361,50 +384,56 @@
 
     <!-- Services -->
     <section class="services bg-light position-relative">
-        <p class="text-white text-center fw-light" style="font-size: 1rem;">What are you looking for?</p>
+        <p class="text-white text-center fw-light" style="font-size: 1rem;">What are you seeking?</p>
         <h2 class="text-center text-white mb-5" style="font-size: 2rem;">Our Services</h2>
         <div class="container py-5">
             <div class="row justify-content-around g-4">
                 <!-- Study Abroad Section -->
-                <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3">
+                <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3 d-flex flex-column">
                     <div class="bg-darkblue rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
-                        style="width: 60px; height: 60px;position: relative; top: -30px;">
+                        style="width: 60px; height: 60px; position: relative; top: -30px;">
                         <i class="fas fa-user-graduate fa-2x text-white"></i>
                     </div>
                     <h3 class="h5 text-darkblue">Study Abroad</h3>
                     <hr class="w-50 mx-auto">
-                    <p>Explore a plethora of overseas education opportunities. We help you find your dream course in the
-                        best universities around the world. Our expert advisors guide you from a free counselling
-                        session to your admission.</p>
-                    <br><a href="#" class="btn-custom-hover">Learn More</a>
+                    <p>Discover a wide range of international education opportunities. We assist you in finding your
+                        ideal course at top universities worldwide. Our knowledgeable advisors will support you from
+                        your initial free consultation all the way to your admission.</p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn-custom-hover">Discover More</a>
+                    </div>
                 </div>
 
                 <!-- Travel Around Section -->
-                <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3">
+                <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3 d-flex flex-column">
                     <div class="bg-darkblue rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
-                        style="width: 60px; height: 60px;position: relative; top: -30px;">
+                        style="width: 60px; height: 60px; position: relative; top: -30px;">
                         <i class="fas fa-plane fa-2x text-white"></i>
                     </div>
-                    <h3 class="h5 text-darkblue">Travel Around</h3>
+                    <h3 class="h5 text-darkblue">Travel the World</h3>
                     <hr class="w-50 mx-auto">
-                    <p>Travel around the world and feed the wanderlust in you. We provide complete travel assistance to
-                        fulfill all your travel dreams. From visa assistance to accommodation, our travel experts can
-                        assist you in everything to make your travel hassle-free.</p>
-                    <br><a href="#" class="btn-custom-hover mb-3">Learn More</a>
+                    <p>Embark on global adventures and satisfy your wanderlust. We offer comprehensive travel assistance
+                        to help you realize all your travel aspirations. From visa support to accommodation
+                        arrangements, our travel specialists are here to ensure your journey is seamless.</p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn-custom-hover mb-3">Discover More</a>
+                    </div>
                 </div>
 
                 <!-- Settle Anywhere Section -->
-                <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3">
+                <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3 d-flex flex-column">
                     <div class="bg-darkblue rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
-                        style="width: 60px; height: 60px;position: relative; top: -30px;">
+                        style="width: 60px; height: 60px; position: relative; top: -30px;">
                         <i class="fas fa-user-friends fa-2x text-white"></i>
                     </div>
-                    <h3 class="h5 text-darkblue">Settle Anywhere</h3>
+                    <h3 class="h5 text-darkblue">Relocate Anywhere</h3>
                     <hr class="w-50 mx-auto">
-                    <p>Planning to settle abroad? We can guide you with all the immigration services in very few steps.
-                        We handle complete paper documentation and everything required to settle in your dream country.
-                        Let us know where you want to live and leave the rest to us.</p>
-                    <br><a href="#" class="btn-custom-hover mb-3">Learn More</a>
+                    <p>Thinking about moving abroad? We provide expert guidance on all immigration services in just a
+                        few simple steps. We manage all necessary paperwork and requirements to help you settle in your
+                        desired country. Just tell us where you want to go, and we’ll take care of the rest.</p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn-custom-hover mb-3">Discover More</a>
+                    </div>
                 </div>
             </div>
         </div>

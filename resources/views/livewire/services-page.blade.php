@@ -30,7 +30,7 @@
             background-color: rgb(186, 2, 13) !important;
             color: white !important;
             border-radius: none;
-            font-size: 15px;
+            font-size: 1rem;
             text-decoration: none;
             padding: 10px 20px;
         }
@@ -45,7 +45,7 @@
             background-color: rgb(186, 2, 13) !important;
             color: white !important;
             border-radius: none;
-            font-size: 15px;
+            font-size: 1rem;
             text-decoration: none;
             padding: 10px 20px;
         }
@@ -54,9 +54,27 @@
             background-color: rgb(44, 39, 82) !important;
             color: white !important;
             border-radius: none;
-            font-size: 15px;
+            font-size: 1rem;
             text-decoration: none;
             padding: 10px 20px;
+        }
+
+        @media (max-width: 768px) {
+
+            .btn-custom-hover,
+            .btn-custom-without-hover,
+            .btn-custom-without-hover2 {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .btn-custom-hover,
+            .btn-custom-without-hover,
+            .btn-custom-without-hover2 {
+                font-size: 0.75rem;
+            }
         }
     </style>
     <!-- Footer -->
@@ -67,11 +85,11 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="ISUK Logo" class="img-fluid mb-3">
                     <p class="text-white mb-2" style="font-size: 1rem;">
-                        We assist you in finding the best destinations to fulfill your dreams.
+                        We help you find the best destinations to achieve your dreams.
                     </p>
                     <p class="text-white" style="font-size: 1rem;">
-                        With partnerships in over 65 countries, we ensure your journey is seamless and your goals are
-                        achieved with excellence.
+                        With partnerships in over 65 countries, we ensure a seamless journey and help you reach your
+                        goals with excellence.
                     </p>
                 </div>
                 <!-- Contact Section -->
