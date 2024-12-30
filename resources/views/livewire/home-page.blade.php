@@ -285,10 +285,6 @@
                             href="{{ route('services') }}" style="font-size: 1rem;">Services</a>
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link active text-white fw-bold" aria-current="page"
-                            href="{{ route('healthcare') }}" style="font-size: 1rem;">Healthcare</a>
-                    </li>
-                    <li class="nav-item me-3">
                         <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ route('country') }}"
                             style="font-size: 1rem;">Country</a>
                     </li>

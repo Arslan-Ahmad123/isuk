@@ -59,6 +59,41 @@
             padding: 10px 20px;
         }
     </style>
+    <header class="d-flex flex-wrap justify-content-center bg-darkblue">
+        <nav class="navbar navbar-expand-lg navbar-light w-100 px-4">
+            <a class="navbar-brand text-white fw-bold" href="{{ route('home') }}">
+                ISUK Consultancy
+            </a>
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-3">
+                        <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ route('home') }}"
+                            style="font-size: 1rem;">Home</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ route('about') }}"
+                            style="font-size: 1rem;">About</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ route('services') }}"
+                            style="font-size: 1rem;">Services</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ route('country') }}"
+                            style="font-size: 1rem;">Country</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ route('contact') }}"
+                            style="font-size: 1rem;">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <!-- Footer -->
     <footer class="bg-darkblue text-white">
         <div class="container py-5">

@@ -26,6 +26,25 @@
         {{ $slot }}
     </div>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false,
+        });
+
+        // Additional animations
+        document.addEventListener('DOMContentLoaded', function() {
+            var elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(function(element) {
+                element.classList.add('aos-animate');
+            });
+        });
+    </script>
     @livewireScriptConfig
     @stack('below_script')
 </body>
