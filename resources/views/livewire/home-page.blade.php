@@ -565,13 +565,13 @@
         <div class="container text-center text-white d-flex flex-column align-items-center justify-content-center">
             <div class="row w-100">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                    <h2 class="fw-bold mb-4" style="font-size: 2rem;">
+                    <h2 class="fw-bold mb-3" style="font-size: 2rem;">
                         Discover the Paths, Illuminate the Paths, Guide the Paths...!
                     </h2>
-                    <p class="mb-5" style="font-size: 1rem; line-height: 1.8;">
+                    <p class="mb-4" style="font-size: 1rem; line-height: 1.8;">
                         Your one-stop solution for all your international living needs and aspirations.
                     </p>
-                    <p class="mb-5" style="font-size: 1rem; line-height: 1.8;">
+                    <p class="mb-4" style="font-size: 1rem; line-height: 1.8;">
                         Your comprehensive resource for achieving your international living aspirations and dreams.
                     </p>
                     <a href="{{ route('contact') }}" class="btn-custom-without-hover2" style="font-size: 1rem;">
