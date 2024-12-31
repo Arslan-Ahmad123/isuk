@@ -54,7 +54,7 @@ Route::get('/healthcare', HealthCarePage::class)->name('healthcare');
 Route::get('/country', CountryPage::class)->name('country');
 Route::get('/contact', ContactPage::class)->name('contact');
 
-Route::get('admin/login', Login::class)->name('login')->middleware('guest:agent');
+// Route::get('admin/login', Login::class)->name('login')->middleware('guest:agent');
 Route::middleware(['auth'])->group(function () {
 
 
