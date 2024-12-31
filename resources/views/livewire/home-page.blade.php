@@ -14,29 +14,30 @@
             object-fit: cover;
         }
 
-        .text-darkblue {
-            color: rgb(44, 39, 82) !important;
+        .text-primary {
+            color: #2c2752 !important;
         }
 
-        .bg-darkblue {
-            background-color: rgb(44, 39, 82) !important;
+        .bg-primary {
+            background-color: #2c2752 !important;
         }
 
-        .bg-darkred {
-            background-color: rgb(186, 2, 13) !important;
+        .text-secondary {
+            color: #ba020d !important;
         }
 
-        .text-darkred {
-            color: rgb(186, 2, 13) !important;
+        .bg-secondary {
+            background-color: #ba020d !important;
         }
 
-        .btn-darkred {
-            background-color: rgb(186, 2, 13) !important;
+        .btn-primary {
+            background-color: #2c2752 !important;
             color: white !important;
         }
 
-        .nav-pills .nav-link.active {
-            background-color: rgb(44, 39, 82);
+        .btn-secondary {
+            background-color: #ba020d !important;
+            color: white !important;
         }
 
         .carousel-caption {
@@ -102,11 +103,11 @@
         }
 
         footer {
-            background-color: #e9e9e9 !important;
+            background-color: #f8f9fa !important;
         }
 
         .btn-custom-hover {
-            background-color: rgb(44, 39, 82) !important;
+            background-color: #2c2752 !important;
             color: white !important;
             border-radius: none;
             font-size: 1rem;
@@ -116,12 +117,12 @@
 
         .btn-custom-hover:hover {
             background-color: transparent !important;
-            border: 1px solid rgb(44, 39, 82) !important;
-            color: rgb(44, 39, 82) !important;
+            border: 1px solid #2c2752 !important;
+            color: #2c2752 !important;
         }
 
         .btn-custom-without-hover {
-            background-color: rgb(186, 2, 13) !important;
+            background-color: #ba020d !important;
             color: white !important;
             border-radius: none;
             font-size: 1rem;
@@ -131,7 +132,7 @@
         }
 
         .btn-custom-without-hover2 {
-            background-color: rgb(44, 39, 82) !important;
+            background-color: #2c2752 !important;
             color: white !important;
             border-radius: none;
             border: none;
@@ -164,7 +165,7 @@
         }
 
         .services {
-            background-color: rgb(44, 39, 82) !important;
+            background-color: #2c2752 !important;
             background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
@@ -184,65 +185,18 @@
         }
 
         .consultation-section {
-            background-image: url("{{ asset('assets/images/consultation-bg.jpg') }}");
+            background-color: #2c2752 !important;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             min-height: 300px;
         }
 
-        .carousel-item-one {
-            background-image: url("{{ asset('assets/images/new-york-city-cityscape-1.jpg') }}");
-            background-size: cover;
-            background-position: center;
-            width: 50%;
-            min-height: 300px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .carousel-item-two {
-            background-image: url("{{ asset('assets/images/united-kingdom-1.jpg') }}");
-            background-size: cover;
-            background-position: center;
-            width: 50%;
-            min-height: 300px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .carousel-item-three {
-            background-image: url("{{ asset('assets/images/country_image_Canada-1.jpg') }}");
-            background-size: cover;
-            background-position: center;
-            width: 50%;
-            min-height: 300px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .carousel-item-four {
-            background-image: url("{{ asset('assets/images/Wellington-Harbour-New-Zealand.webp') }}");
-            background-size: cover;
-            background-position: center;
-            width: 50%;
-            min-height: 300px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .carousel-item-five {
-            background-image: url("{{ asset('assets/images/australia-1621333850705-1.jpg') }}");
-            background-size: cover;
-            background-position: center;
-            width: 50%;
-            min-height: 300px;
-            margin: 0 auto;
-            position: relative;
-        }
-
+        .carousel-item-one,
+        .carousel-item-two,
+        .carousel-item-three,
+        .carousel-item-four,
+        .carousel-item-five,
         .carousel-item-six {
-            background-image: url("{{ asset('assets/images/framkfurt-europe-1.jpg') }}");
             background-size: cover;
             background-position: center;
             width: 50%;
@@ -261,7 +215,7 @@
     </style>
 
     <!-- Header -->
-    <header class="d-flex flex-wrap justify-content-center bg-darkblue">
+    <header class="d-flex flex-wrap justify-content-center bg-primary">
         <nav class="navbar navbar-expand-lg navbar-light w-100 px-4">
             <a class="navbar-brand text-white fw-bold" href="{{ route('home') }}">
                 ISUK Consultancy
@@ -281,8 +235,8 @@
                             style="font-size: 1rem;">About</a>
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link active text-white fw-bold" aria-current="page"
-                            href="{{ route('services') }}" style="font-size: 1rem;">Services</a>
+                        <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ route('services') }}"
+                            style="font-size: 1rem;">Services</a>
                     </li>
                     <li class="nav-item me-3">
                         <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ route('country') }}"
@@ -326,7 +280,8 @@
                         <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Pursue Education Abroad</h2>
                         <p class="mt-4" style="font-size: 1.5vw; font-weight: 500;">Unlock a world of possibilities
                         </p>
-                        <button class="btn-custom-without-hover2" style="font-size: 1rem;">Discover More</button>
+                        <a href="{{ route('country') }}" class="btn-custom-without-hover2"
+                            style="font-size: 1rem;">Discover More</a>
                     </div>
                 </div>
                 <div class="carousel-item h-100">
@@ -339,7 +294,8 @@
                         <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Build Your Career Overseas</h2>
                         <p class="mt-2" style="font-size: 1.5vw; font-weight: 500;">Step up to global opportunities
                         </p>
-                        <button class="btn-custom-without-hover2" style="font-size: 1rem;">Learn More</button>
+                        <a href="{{ route('country') }}" class="btn-custom-without-hover2"
+                            style="font-size: 1rem;">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -358,7 +314,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 mt-4 mt-md-0">
-                    <h2 class="mb-4 text-darkblue" style="font-size: 2rem; font-weight: bold;">About
+                    <h2 class="mb-4 text-primary" style="font-size: 2rem; font-weight: bold;">About
                         ISUK</h2>
                     <p class="lead mb-4" style="font-size: 1.2rem; font-weight: 600;">Connecting your aspirations with
                         reality...!</p>
@@ -371,7 +327,7 @@
                         vision. We dream big, and we empower you not just to envision your goals but to turn them into
                         reality.</p>
                     <div class="mt-4">
-                        <a href="#" class="btn-custom-hover">Learn More</a>
+                        <a href="{{ route('about') }}" class="btn-custom-hover">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -386,49 +342,49 @@
             <div class="row justify-content-around g-4">
                 <!-- Study Abroad Section -->
                 <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3 d-flex flex-column">
-                    <div class="bg-darkblue rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
+                    <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
                         style="width: 60px; height: 60px; position: relative; top: -30px;">
                         <i class="fas fa-user-graduate fa-2x text-white"></i>
                     </div>
-                    <h3 class="h5 text-darkblue">Study Abroad</h3>
+                    <h3 class="h5 text-primary">Study Abroad</h3>
                     <hr class="w-50 mx-auto">
                     <p>Discover a wide range of international education opportunities. We assist you in finding your
                         ideal course at top universities worldwide. Our knowledgeable advisors will support you from
                         your initial free consultation all the way to your admission.</p>
                     <div class="mt-auto">
-                        <a href="#" class="btn-custom-hover">Discover More</a>
+                        <a href="{{ route('services') }}" class="btn-custom-hover">Discover More</a>
                     </div>
                 </div>
 
                 <!-- Travel Around Section -->
                 <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3 d-flex flex-column">
-                    <div class="bg-darkblue rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
+                    <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
                         style="width: 60px; height: 60px; position: relative; top: -30px;">
                         <i class="fas fa-plane fa-2x text-white"></i>
                     </div>
-                    <h3 class="h5 text-darkblue">Travel the World</h3>
+                    <h3 class="h5 text-primary">Travel the World</h3>
                     <hr class="w-50 mx-auto">
                     <p>Embark on global adventures and satisfy your wanderlust. We offer comprehensive travel assistance
                         to help you realize all your travel aspirations. From visa support to accommodation
                         arrangements, our travel specialists are here to ensure your journey is seamless.</p>
                     <div class="mt-auto">
-                        <a href="#" class="btn-custom-hover mb-3">Discover More</a>
+                        <a href="{{ route('services') }}" class="btn-custom-hover mb-3">Discover More</a>
                     </div>
                 </div>
 
                 <!-- Settle Anywhere Section -->
                 <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3 d-flex flex-column">
-                    <div class="bg-darkblue rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
+                    <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
                         style="width: 60px; height: 60px; position: relative; top: -30px;">
                         <i class="fas fa-user-friends fa-2x text-white"></i>
                     </div>
-                    <h3 class="h5 text-darkblue">Relocate Anywhere</h3>
+                    <h3 class="h5 text-primary">Relocate Anywhere</h3>
                     <hr class="w-50 mx-auto">
                     <p>Thinking about moving abroad? We provide expert guidance on all immigration services in just a
                         few simple steps. We manage all necessary paperwork and requirements to help you settle in your
                         desired country. Just tell us where you want to go, and we’ll take care of the rest.</p>
                     <div class="mt-auto">
-                        <a href="#" class="btn-custom-hover mb-3">Discover More</a>
+                        <a href="{{ route('services') }}" class="btn-custom-hover mb-3">Discover More</a>
                     </div>
                 </div>
             </div>
@@ -437,34 +393,34 @@
 
     <!-- Counter -->
     <section class="counter-section position-relative py-5">
-        <h2 class="text-darkblue text-center fw-bold mb-5" style="font-size: 2rem;">The ISUK Advantages</h2>
+        <h2 class="text-primary text-center fw-bold mb-5" style="font-size: 2rem;">The ISUK Advantages</h2>
         <div class="container mb-2">
             <div class="row text-center">
                 <!-- Counter Box -->
                 <div class="col-6 col-md-3 mb-4 mb-md-0">
                     <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-darkblue">7,500<span>+</span></h2>
+                        <h2 class="display-5 fw-bold text-primary">7,500<span>+</span></h2>
                         <p class="fs-5 mt-2">Students</p>
                     </div>
                 </div>
                 <!-- Counter Box -->
                 <div class="col-6 col-md-3 mb-4 mb-md-0">
                     <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-darkblue">127</h2>
+                        <h2 class="display-5 fw-bold text-primary">127</h2>
                         <p class="fs-5 mt-2">Universities</p>
                     </div>
                 </div>
                 <!-- Counter Box -->
                 <div class="col-6 col-md-3 mb-4 mb-md-0">
                     <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-darkblue">81</h2>
+                        <h2 class="display-5 fw-bold text-primary">81</h2>
                         <p class="fs-5 mt-2">Countries</p>
                     </div>
                 </div>
                 <!-- Counter Box -->
                 <div class="col-6 col-md-3 mb-4 mb-md-0">
                     <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-darkblue">7,500<span>+</span></h2>
+                        <h2 class="display-5 fw-bold text-primary">7,500<span>+</span></h2>
                         <p class="fs-5 mt-2">Immigrations</p>
                     </div>
                 </div>
@@ -475,8 +431,8 @@
     <!-- Destination -->
     <div id="destination">
         <div class="container py-5">
-            <h2 class="text-darkblue text-center mb-4 fw-bold" style="font-size: 2rem;">Top Destinations</h2>
-            <p class="lead text-darkblue text-center mb-5" style="font-size: 1rem;">
+            <h2 class="text-primary text-center mb-4 fw-bold" style="font-size: 2rem;">Top Destinations</h2>
+            <p class="lead text-primary text-center mb-5" style="font-size: 1rem;">
                 Dreaming of an international life? The world is vast and full of opportunities. Discover the endless
                 possibilities awaiting you.
             </p>
@@ -581,7 +537,7 @@
     <!-- Section -->
 
     <!-- Footer -->
-    <footer class="bg-darkblue text-white">
+    <footer class="bg-primary text-white">
         <div class="container py-5">
             <div class="row">
                 <!-- About Section -->
@@ -604,14 +560,14 @@
                         </li>
                         <li class="mb-2">
                             <span class="text-white" style="font-size: 1rem;">WhatsApp:
-                                <a href="tel:+447404929210" class="text-primary text-decoration-none">+44 7404
+                                <a href="tel:+447404929210" class="text-decoration-none">+44 7404
                                     929210</a>
                             </span>
                         </li>
                         <li class="mb-2">
                             <span class="text-white" style="font-size: 1rem;">E-mail:
                                 <a href="mailto:info@isukconsultancy.co.uk"
-                                    class="text-primary text-decoration-none">info@isukconsultancy.co.uk</a>
+                                    class="text-decoration-none">info@isukconsultancy.co.uk</a>
                             </span>
                         </li>
                     </ul>
@@ -621,16 +577,16 @@
                     <h5 class="text-uppercase fw-bold mb-3 text-light">Quick Links</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <a href="#" class="text-white text-decoration-none">Home</a>
+                            <a href="{{ route('home') }}" class="text-white text-decoration-none">Home</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-white text-decoration-none">About Us</a>
+                            <a href="{{ route('about') }}" class="text-white text-decoration-none">About Us</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-white text-decoration-none">Services</a>
+                            <a href="{{ route('services') }}" class="text-white text-decoration-none">Services</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-white text-decoration-none">Contact</a>
+                            <a href="{{ route('contact') }}" class="text-white text-decoration-none">Contact</a>
                         </li>
                     </ul>
                 </div>
