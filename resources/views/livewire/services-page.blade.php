@@ -242,9 +242,9 @@
                             <strong>London Office:</strong><br>
                         </li>
                         <li class="mb-2">
-                            <span class="text-white" style="font-size: 1rem;">WhatsApp:
-                                <a href="tel:+447404929210" class="text-decoration-none">+44 7404
-                                    929210</a>
+                            <span class="text-white" style="font-size: 1rem;">
+                                <i class="fab fa-whatsapp"></i> WhatsApp:
+                                <a href="tel:+447404929210" class="text-decoration-none">+447466330705</a>
                             </span>
                         </li>
                         <li class="mb-2">

@@ -218,7 +218,8 @@
     <header class="d-flex flex-wrap justify-content-center bg-primary">
         <nav class="navbar navbar-expand-lg navbar-light w-100 px-4">
             <a class="navbar-brand text-white fw-bold" href="{{ route('home') }}">
-                ISUK Consultancy
+                <img class="img-fluid" src="{{ asset('assets/images/newlogo.png') }}" alt="ISUK Consultancy Logo"
+                    style="width: 200px; height: auto;">
             </a>
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -336,7 +337,6 @@
 
     <!-- Services -->
     <section class="services bg-light position-relative">
-        <p class="text-white text-center fw-light" style="font-size: 1rem;">What are you seeking?</p>
         <h2 class="text-center text-white mb-5" style="font-size: 2rem;">Our Services</h2>
         <div class="container py-5">
             <div class="row justify-content-around g-4">
@@ -399,34 +399,70 @@
                 <!-- Counter Box -->
                 <div class="col-6 col-md-3 mb-4 mb-md-0">
                     <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-primary">7,500<span>+</span></h2>
+                        <h2 class="display-5 fw-bold text-primary"><span class="counter-value"
+                                data-count="7500">0</span>+</h2>
                         <p class="fs-5 mt-2">Students</p>
                     </div>
                 </div>
                 <!-- Counter Box -->
                 <div class="col-6 col-md-3 mb-4 mb-md-0">
                     <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-primary">127</h2>
+                        <h2 class="display-5 fw-bold text-primary"><span class="counter-value"
+                                data-count="127">0</span></h2>
                         <p class="fs-5 mt-2">Universities</p>
                     </div>
                 </div>
                 <!-- Counter Box -->
                 <div class="col-6 col-md-3 mb-4 mb-md-0">
                     <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-primary">81</h2>
+                        <h2 class="display-5 fw-bold text-primary"><span class="counter-value"
+                                data-count="81">0</span></h2>
                         <p class="fs-5 mt-2">Countries</p>
                     </div>
                 </div>
                 <!-- Counter Box -->
                 <div class="col-6 col-md-3 mb-4 mb-md-0">
                     <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-primary">7,500<span>+</span></h2>
+                        <h2 class="display-5 fw-bold text-primary"><span class="counter-value"
+                                data-count="7500">0</span>+</h2>
                         <p class="fs-5 mt-2">Immigrations</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.counter-value');
+            const speed = 200; // The lower the slower
+
+            counters.forEach(counter => {
+                const animate = () => {
+                    const value = +counter.getAttribute('data-count');
+                    const data = +counter.innerText;
+                    const time = value / speed;
+                    if (data < value) {
+                        counter.innerText = Math.ceil(data + time);
+                        setTimeout(animate, 1);
+                    } else {
+                        counter.innerText = value;
+                    }
+                };
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animate();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                observer.observe(counter);
+            });
+        });
+    </script>
 
     <!-- Destination -->
     <div id="destination">
@@ -541,8 +577,9 @@
         <div class="container py-5">
             <div class="row">
                 <!-- About Section -->
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <img src="{{ asset('assets/images/logo.png') }}" alt="ISUK Logo" class="img-fluid mb-3">
+                <div class="col-md-4 mb-4 mb-md-0 text-center">
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="ISUK Logo" class="img-fluid mb-3 mx-auto"
+                        style="">
                     <p class="text-white mb-2" style="font-size: 1rem;">
                         We help you discover the ideal destinations to achieve your aspirations.
                     </p>
@@ -559,9 +596,9 @@
                             <strong>London Office:</strong><br>
                         </li>
                         <li class="mb-2">
-                            <span class="text-white" style="font-size: 1rem;">WhatsApp:
-                                <a href="tel:+447404929210" class="text-decoration-none">+44 7404
-                                    929210</a>
+                            <span class="text-white" style="font-size: 1rem;">
+                                <i class="fab fa-whatsapp"></i> WhatsApp:
+                                <a href="tel:+447404929210" class="text-decoration-none">+447466330705</a>
                             </span>
                         </li>
                         <li class="mb-2">
