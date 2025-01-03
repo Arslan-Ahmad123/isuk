@@ -10,8 +10,8 @@
                 <div class="col-lg-8 col-md-8 col-sm-12 cl-xs-12">
                     <div class="text-white user-profile d-flex align-items-center">
                         <div class="imgs">
-                            <img src="{{ auth()->user()?->profile_photo_url }}" alt="user" class="rounded-circle"
-                                alt="..." width="120" height="120">
+                            <img src="{{ asset('assets/images/users/user-placeholder.png') }}" alt="user"
+                                class="rounded-circle" alt="..." width="120" height="120">
                         </div>
                         <div class="user-detail ms-3">
                             <h2 class="text-white"> {{ auth()->user()?->full_name ?? '' }}</h2>

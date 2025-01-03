@@ -22,6 +22,10 @@
             background-color: #2c2752 !important;
         }
 
+        .bg-primary-light {
+            background-color: #756cb8 !important;
+        }
+
         .text-secondary {
             color: #ba020d !important;
         }
@@ -32,6 +36,11 @@
 
         .btn-primary {
             background-color: #2c2752 !important;
+            color: white !important;
+        }
+
+        .btn-primary-light {
+            background-color: #756cb8 !important;
             color: white !important;
         }
 
@@ -218,8 +227,8 @@
     <header class="d-flex flex-wrap justify-content-center bg-primary">
         <nav class="navbar navbar-expand-lg navbar-light w-100 px-4">
             <a class="navbar-brand text-white fw-bold" href="{{ route('home') }}">
-                <img class="img-fluid" src="{{ asset('assets/images/newlogo.png') }}" alt="ISUK Consultancy Logo"
-                    style="width: 200px; height: auto;">
+                <img class="img-fluid" src="{{ asset('assets/images/logo (2).png') }}" alt="ISUK Consultancy Logo"
+                    style="width: 130px; height: auto;">
             </a>
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -588,8 +597,8 @@
             <div class="row">
                 <!-- About Section -->
                 <div class="col-md-4 mb-4 mb-md-0 text-center">
-                    <img src="{{ asset('assets/images/logo.png') }}" alt="ISUK Logo" class="img-fluid mb-3 mx-auto"
-                        style="">
+                    <img src="{{ asset('assets/images/logo (2).png') }}" alt="ISUK Logo"
+                        class="img-fluid mb-3 mx-auto" style="">
                     <p class="text-white mb-2" style="font-size: 1rem;">
                         We help you discover the ideal destinations to achieve your aspirations.
                     </p>

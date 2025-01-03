@@ -5,6 +5,7 @@ use App\Livewire\AboutPage;
 use App\Livewire\ContactPage;
 use App\Livewire\CountryPage;
 use App\Livewire\Dashboard\Dashboard\Dashboard;
+use App\Livewire\HeaderFooter;
 use App\Livewire\HealthCarePage;
 use App\Livewire\HomePage;
 use App\Livewire\Login;
@@ -54,12 +55,13 @@ Route::get('/healthcare', HealthCarePage::class)->name('healthcare');
 Route::get('/country', CountryPage::class)->name('country');
 Route::get('/contact', ContactPage::class)->name('contact');
 
-// Route::get('admin/login', Login::class)->name('login')->middleware('guest:agent');
+Route::get('admin/login', Login::class)->name('login')->middleware('guest:agent');
 Route::middleware(['auth'])->group(function () {
 
 
     Route::prefix('admin')->group(function () {
         Route::get('/', Dashboard::class)->name('dashboard');
+        Route::get('/page', HeaderFooter::class)->name('header-footer');
     });
 
 

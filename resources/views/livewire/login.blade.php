@@ -1,4 +1,3 @@
-
 <div>
     <div class="row justify-content-center">
         <div class="col-xxl-4 col-lg-5">
@@ -7,7 +6,7 @@
                 <!-- Logo -->
                 <div class="py-3 text-center card-header bg-dark">
                     {{-- <a href="{{ route('login') }}"> --}}
-                        <span><img src="{{ asset(AppConst::ASSET_LOGO) }}" alt="logo" height="50"></span>
+                    {{-- <span><img src="{{ asset(AppConst::ASSET_LOGO) }}" alt="logo" height="50"></span> --}}
                     {{-- </a> --}}
                 </div>
 

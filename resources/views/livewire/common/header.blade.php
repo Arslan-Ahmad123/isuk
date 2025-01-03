@@ -6,22 +6,22 @@
                 <!-- Topbar Brand Logo -->
                 <div class="logo-topbar">
                     <!-- Logo light -->
-                    <a href="{{ route('employee') }}" class="logo-light">
+                    <a href="" class="logo-light">
                         <span class="logo-lg">
-                            <img src="{{ asset(AppConst::ASSET_LOGO) }}" alt="logo">
+                            {{-- <img src="{{ asset(AppConst::ASSET_LOGO) }}" alt="logo"> --}}
                         </span>
                         <span class="logo-sm">
-                            <img src="{{ asset(AppConst::ASSET_SM_LOGO) }}" alt="small logo">
+                            {{-- <img src="{{ asset(AppConst::ASSET_SM_LOGO) }}" alt="small logo"> --}}
                         </span>
                     </a>
 
                     <!-- Logo Dark -->
-                    <a href="{{ route('employee') }}" class="logo-dark">
+                    <a href="" class="logo-dark">
                         <span class="logo-lg">
-                            <img src="{{ asset(AppConst::ASSET_DARK_LOGO) }}" alt="dark logo">
+                            {{-- <img src="{{ asset(AppConst::ASSET_DARK_LOGO) }}" alt="dark logo"> --}}
                         </span>
                         <span class="logo-sm">
-                            <img src="{{ asset(AppConst::ASSET_DARK_SM_LOGO) }}" alt="small logo">
+                            {{-- <img src="{{ asset(AppConst::ASSET_DARK_SM_LOGO) }}" alt="small logo"> --}}
                         </span>
                     </a>
                 </div>
@@ -79,8 +79,8 @@
                     <a class="px-2 nav-link dropdown-toggle arrow-none nav-user" data-bs-toggle="dropdown"
                         href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <span class="account-user-avatar">
-                            <img src="{{ auth()->user()?->profile_photo_url }}" alt="user" width="32"
-                                class="rounded-circle" height="32">
+                            <img src="{{ asset('assets/images/users/user-placeholder.png') }}" alt="user"
+                                width="32" class="rounded-circle" height="32">
                         </span>
                         <span class="gap-1 d-lg-flex flex-column d-none">
                             <h5 class="my-0">{{ Auth::user()?->full_name }}</h5>

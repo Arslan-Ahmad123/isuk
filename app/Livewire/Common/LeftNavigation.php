@@ -11,7 +11,6 @@ use App\Helpers\AppConstants as AppConst;
 
 class LeftNavigation extends Component
 {
-    use RoleTrait;
 
     public Collection $moduleIds;
 
@@ -20,19 +19,19 @@ class LeftNavigation extends Component
         return view(
             'livewire.common.left-navigation',
             [
-                'modules' => $this->getAllModules(),
+                // 'modules' => $this->getAllModules(),
             ]
         );
     }
 
     public function getAllModules()
     {
-        return Cache::rememberForever(AppConst::GET_ROLE_ALL_MODULES.'-'.auth()->user()->role_id, function () {
-            return Module::whereHas('permissions', function ($query) {
-                $query->whereHas('roles', function ($roleQuery) {
-                    $roleQuery->where('roles.id', auth()->user()->role_id);
-                });
-            })->whereNull('module_id')->where('is_active', 1)->orderBy('name', 'asc')->get() ?? [];
-        });
+        // return Cache::rememberForever(AppConst::GET_ROLE_ALL_MODULES.'-'.auth()->user()->role_id, function () {
+        //     return Module::whereHas('permissions', function ($query) {
+        //         $query->whereHas('roles', function ($roleQuery) {
+        //             $roleQuery->where('roles.id', auth()->user()->role_id);
+        //         });
+        //     })->whereNull('module_id')->where('is_active', 1)->orderBy('name', 'asc')->get() ?? [];
+        // });
     }
 }
