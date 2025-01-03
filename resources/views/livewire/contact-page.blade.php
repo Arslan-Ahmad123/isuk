@@ -173,7 +173,7 @@
                         <i class="fas fa-phone-alt fa-2x text-primary me-3"></i>
                         <div>
                             <h5 class="mb-1">Phone</h5>
-                            <p class="mb-0">+44 7404 929210</p>
+                            <p class="mb-0">+447466330705</p>
                         </div>
                     </div>
                 </div>
