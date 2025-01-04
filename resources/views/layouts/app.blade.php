@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset(AppConst::ASSET_FAVICON) }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset(AppConst::ASSET_JS . '/hyper-config.js') }}"></script>
     <!-- App css -->
@@ -54,22 +54,22 @@
                     <x-general.breadcrumbs :breadcrumbs="$breadcrumbs ?? []" :pageTitle="$pageTitle ?? ''" />
 
                     @if (Route::currentRouteName() == 'role.permissions' || Route::currentRouteName() == 'tree')
-                    <div class="row">
-                        <div class="col-lg-12">
-                            {{ $slot }}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                {{ $slot }}
+                            </div>
+                            <!-- container -->
                         </div>
-                        <!-- container -->
-                    </div>
                     @else
-                    <div class="row">
-                        <div class="col-lg-2 pe-0">
-                            @livewire('common.middle-navigation')
+                        <div class="row">
+                            <div class="col-lg-2 pe-0">
+                                @livewire('common.middle-navigation')
+                            </div>
+                            <div class="col-lg-10">
+                                {{ $slot }}
+                            </div>
+                            <!-- container -->
                         </div>
-                        <div class="col-lg-10">
-                            {{ $slot }}
-                        </div>
-                        <!-- container -->
-                    </div>
                     @endif
                 </div>
 
@@ -120,24 +120,26 @@
             });
             document.addEventListener("DOMContentLoaded", function() {
                 const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                var session_time_zone = '{{session('user_time_zone')}}';
-                if(session_time_zone == '' || session_time_zone == null) {
-                    const route_name = '{{route('setTimezone')}}';
+                var session_time_zone = '{{ session('user_time_zone') }}';
+                if (session_time_zone == '' || session_time_zone == null) {
+                    const route_name = '{{ route('setTimezone') }}';
                     fetch(route_name, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        },
-                        body: JSON.stringify({ timeZone: userTimeZone })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('Time zone set');
-                    })
-                    .catch(error => {
-                        console.error('Error setting time zone:', error);
-                    });
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                timeZone: userTimeZone
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Time zone set');
+                        })
+                        .catch(error => {
+                            console.error('Error setting time zone:', error);
+                        });
                 }
             });
         </script>

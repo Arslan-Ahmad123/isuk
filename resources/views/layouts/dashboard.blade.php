@@ -6,7 +6,7 @@
     <title>{{ config('app.name', 'HRM') . '-' . ($pageTitle ?? '') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo.jpeg') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset(AppConst::ASSET_JS . '/hyper-config.js') }}"></script>
     <!-- App css -->
