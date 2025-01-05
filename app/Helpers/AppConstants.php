@@ -7,4 +7,5 @@ class AppConstants
     const ASSET_JS = 'assets/js';
     const ASSET_CSS = 'assets/css';
     const PROFILE_IMAGE = 'assets/images/users/user-placeholder.png';
+    const ALL_PAGES = 'all-pages';
 }

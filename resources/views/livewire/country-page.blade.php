@@ -116,7 +116,7 @@
     <header class="d-flex flex-wrap justify-content-center bg-primary">
         <nav class="navbar navbar-expand-lg navbar-light w-100 px-4">
             <a class="navbar-brand text-white fw-bold" href="{{ route('home') }}">
-                <img class="img-fluid" src="{{ asset('assets/images/logo (2).png') }}" alt="ISUK Consultancy Logo"
+                <img class="img-fluid" src="{{ $headerFooter?->content['logo'] ?? '' }}" alt="ISUK Consultancy Logo"
                     style="width: 130px; height: auto;">
             </a>
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -151,135 +151,91 @@
     </header>
 
     <!-- Hero Section -->
+    @php
+        $hero = $country?->where('section_name', 'hero')->first()?->content ?? [];
+    @endphp
     <section class="hero-section bg-secondary text-white py-5 d-flex align-items-center justify-content-center"
-        style="background-image: url('{{ asset('assets/images/country-hero.jpg') }}'); background-size: cover; background-position: center; height: 80vh;">
+        style="background-image: url('{{ $hero['image'] ?? '' }}'); background-size: cover; background-position: center; height: 80vh;">
         <div class="container text-center">
-            <h1 class="display-4 fw-bold">Opportunities in USA, UK, Canada, Australia, and Europe</h1>
-            <p class="lead mt-3">Unlock your potential with unmatched educational and immigration prospects in top
-                destinations worldwide.</p>
+            <h1 class="display-4 fw-bold">{{ $hero['title'] ?? '' }}</h1>
+            <p class="lead mt-3">{{ $hero['description'] ?? '' }}</p>
         </div>
     </section>
 
     <!-- Why Choose These Countries Section -->
+    @php
+        $destinations = $country?->where('section_name', 'destinations')->first()?->content ?? [];
+    @endphp
     <section class="section section-bg-light">
         <div class="container">
             <div class="text-center mb-4">
-                <h2 class="section-title">Why Choose These Destinations</h2>
-                <p class="mt-3">Discover why the USA, UK, Canada, Australia, and Europe are top choices for education
-                    and career growth.</p>
+                <h2 class="section-title">{{ $destinations['heading'] ?? '' }}</h2>
+                <p class="mt-3">{{ $destinations['subHeading'] ?? '' }}</p>
             </div>
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="icon-card d-flex align-items-center">
-                        <img src="{{ asset('assets/images/world-class-education.jpg') }}" alt="World-Class Education"
-                            class="img-fluid me-3" style="height: 60px; width: 60px;">
-                        <div>
-                            <h5>World-Class Education</h5>
-                            <p>Top-ranked universities offering diverse programs and research opportunities in these
-                                countries.</p>
+                @foreach ($destinations['destinations'] ?? [] as $destination)
+                    <div class="col-md-4 mb-4">
+                        <div class="icon-card d-flex align-items-center">
+                            <img src="{{ $destination['image'] ?? '' }}" alt="{{ $destination['title'] ?? '' }}"
+                                class="img-fluid me-3" style="height: 60px; width: 60px;">
+                            <div>
+                                <h5>{{ $destination['title'] ?? '' }}</h5>
+                                <p>{{ $destination['description'] ?? '' }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="icon-card d-flex align-items-center">
-                        <img src="{{ asset('assets/images/immigration-pathways.jpg') }}" alt="Immigration Pathways"
-                            class="img-fluid me-3" style="height: 60px; width: 60px;">
-                        <div>
-                            <h5>Immigration Pathways</h5>
-                            <p>Seamless visa processes and support for permanent residency options across these regions.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="icon-card d-flex align-items-center">
-                        <img src="{{ asset('assets/images/cultural-diversity.jpg') }}" alt="Cultural Diversity"
-                            class="img-fluid me-3" style="height: 60px; width: 60px;">
-                        <div>
-                            <h5>Cultural Diversity</h5>
-                            <p>A multicultural environment that enriches both personal and professional growth.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
 
     <!-- Top Opportunities Section -->
+    @php
+        $opportunities = $country?->where('section_name', 'opportunities')->first()?->content ?? [];
+    @endphp
     <section class="section section-bg-light">
         <div class="container">
             <div class="text-center mb-4">
-                <h2 class="section-title">Top Opportunities in These Countries</h2>
-                <p class="mt-3">Explore premier institutions and immigration pathways tailored for your future in the
-                    USA, UK, Canada, Australia, and Europe.</p>
+                <h2 class="section-title">{{ $opportunities['heading'] ?? '' }}</h2>
+                <p class="mt-3">{{ $opportunities['subHeading'] ?? '' }}</p>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card border-0 shadow mb-4 card-animate">
-                        <img src="{{ asset('assets/images/usa-universities.jpg') }}" class="card-img-top"
-                            alt="USA Universities">
-                        <div class="card-body">
-                            <h5 class="card-title">USA: Leading the World in Education</h5>
-                            <p class="card-text">Renowned for cutting-edge research and top-ranked institutions.</p>
+                @foreach ($opportunities['opportunities'] ?? [] as $index => $opportunity)
+                    @php
+                        $count = count($opportunities['opportunities']);
+                        $colClass =
+                            $count % 3 == 1 && $index == $count - 1
+                                ? 'col-md-12'
+                                : ($count % 3 == 2 && $index >= $count - 2
+                                    ? 'col-md-6'
+                                    : 'col-md-4');
+                    @endphp
+                    <div class="{{ $colClass }} mb-4">
+                        <div class="card border-0 shadow mb-4 card-animate">
+                            <img src="{{ $opportunity['image'] ?? '' }}" class="card-img-top"
+                                alt="{{ $opportunity['title'] ?? '' }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $opportunity['title'] ?? '' }}</h5>
+                                <p class="card-text">{{ $opportunity['description'] ?? '' }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 shadow mb-4 card-animate">
-                        <img src="{{ asset('assets/images/uk-universities.jpg') }}" class="card-img-top"
-                            alt="UK Universities">
-                        <div class="card-body">
-                            <h5 class="card-title">UK: Excellence in Academics</h5>
-                            <p class="card-text">Historic universities with world-class academic programs.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 shadow mb-4 card-animate">
-                        <img src="{{ asset('assets/images/canada-universities.jpg') }}" class="card-img-top"
-                            alt="Canada Immigration">
-                        <div class="card-body">
-                            <h5 class="card-title">Canada: Open Immigration Policies</h5>
-                            <p class="card-text">Offering work permits, PR pathways, and thriving job markets.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-6">
-                    <div class="card border-0 shadow mb-4 card-animate">
-                        <img src="{{ asset('assets/images/australia-universities.jpg') }}" class="card-img-top"
-                            alt="Australia Opportunities">
-                        <div class="card-body">
-                            <h5 class="card-title">Australia: Education and Lifestyle</h5>
-                            <p class="card-text">Known for its quality of life and globally recognized universities.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card border-0 shadow mb-4 card-animate">
-                        <img src="{{ asset('assets/images/europe-universities.jpg') }}" class="card-img-top"
-                            alt="Europe Studies">
-                        <div class="card-body">
-                            <h5 class="card-title">Europe: A Hub of Innovation</h5>
-                            <p class="card-text">Home to diverse cultures and leading institutions.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
 
     <!-- Call-to-Action Section -->
+    @php
+        $contact = $country?->where('section_name', 'contact')->first()?->content ?? [];
+    @endphp
     <section class="section section-bg-dark">
         <div class="container text-center">
-            <h2 class="section-title">Start Your Journey Today</h2>
+            <h2 class="section-title">{{ $contact['heading'] ?? '' }}</h2>
             <div class="section-content">
-                <p class="mt-3">Contact us to unlock educational and immigration opportunities in the USA, UK,
-                    Canada,
-                    Australia, and Europe!</p>
-                <a href="{{ route('contact') }}" class="btn-custom-without-hover2 mt-3">Get in Touch</a>
+                <p class="mt-3">{{ $contact['subHeading'] ?? '' }}</p>
+                <a href="{{ $contact['buttonLink'] ?? route('contact') }}"
+                    class="btn-custom-without-hover2 mt-3">{{ $contact['buttonText'] ?? '' }}</a>
             </div>
         </div>
     </section>
@@ -289,14 +245,14 @@
         <div class="container py-5">
             <div class="row">
                 <!-- About Section -->
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <img src="{{ asset('assets/images/logo (2).png') }}" alt="ISUK Logo" class="img-fluid mb-3">
+                <div class="col-md-4 mb-4 mb-md-0 text-center">
+                    <img src="{{ $headerFooter?->content['logo'] ?? '' }}" alt="ISUK Logo"
+                        class="img-fluid mb-3 mx-auto" style="">
                     <p class="text-white mb-2" style="font-size: 1rem;">
-                        We assist you in finding the best destinations to fulfill your dreams.
+                        {{ $headerFooter?->content['firstPara'] ?? '' }}
                     </p>
                     <p class="text-white" style="font-size: 1rem;">
-                        With partnerships in over 65 countries, we ensure your journey is seamless and your goals are
-                        achieved with excellence.
+                        {{ $headerFooter?->content['secondPara'] ?? '' }}
                     </p>
                 </div>
                 <!-- Contact Section -->
@@ -309,13 +265,14 @@
                         <li class="mb-2">
                             <span class="text-white" style="font-size: 1rem;">
                                 <i class="fab fa-whatsapp"></i> WhatsApp:
-                                <a href="tel:+447404929210" class="text-decoration-none">+447466330705</a>
+                                <a href="tel:+{{ $headerFooter?->content['footerNumber'] ?? '' }}"
+                                    class="text-decoration-none">+{{ $headerFooter?->content['footerNumber'] ?? '' }}</a>
                             </span>
                         </li>
                         <li class="mb-2">
                             <span class="text-white" style="font-size: 1rem;">E-mail:
-                                <a href="mailto:info@isukconsultancy.co.uk"
-                                    class="text-decoration-none">info@isukconsultancy.co.uk</a>
+                                <a href="mailto:{{ $headerFooter?->content['footerEmail'] ?? '' }}"
+                                    class="text-decoration-none">{{ $headerFooter?->content['footerEmail'] ?? '' }}</a>
                             </span>
                         </li>
                     </ul>

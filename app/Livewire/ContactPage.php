@@ -2,11 +2,13 @@
 
 namespace App\Livewire;
 
+use App\Traits\PageTrait;
 use Livewire\Component;
 use Illuminate\Support\Facades\Mail;
 
 class ContactPage extends Component
 {
+    use PageTrait;
     public $name;
     public $email;
     public $message;
@@ -16,6 +18,15 @@ class ContactPage extends Component
         'email' => 'required|email|max:255',
         'message' => 'required|string|max:5000',
     ];
+
+    public function render()
+    {
+        $pages = $this->allPages();
+        return view('livewire.contact-page',[
+            'contact' => $pages?->where('page_name', 'contact'),
+            'headerFooter' => $pages?->where('page_name', 'header_footer')?->first(),
+        ]);
+    }
 
     public function submit()
     {
@@ -35,10 +46,5 @@ class ContactPage extends Component
         session()->flash('success', 'Your message has been sent successfully!');
 
         $this->reset(['name', 'email', 'message']);
-    }
-
-    public function render()
-    {
-        return view('livewire.contact-page');
     }
 }

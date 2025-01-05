@@ -227,7 +227,7 @@
     <header class="d-flex flex-wrap justify-content-center bg-primary">
         <nav class="navbar navbar-expand-lg navbar-light w-100 px-4">
             <a class="navbar-brand text-white fw-bold" href="{{ route('home') }}">
-                <img class="img-fluid" src="{{ asset('assets/images/logo (2).png') }}" alt="ISUK Consultancy Logo"
+                <img class="img-fluid" src="{{ $headerFooter?->content['logo'] ?? '' }}" alt="ISUK Consultancy Logo"
                     style="width: 130px; height: auto;">
             </a>
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -262,92 +262,70 @@
     </header>
 
     <!-- Carousel -->
-    <div style="height:75vh;width:100vw;">
-        <div id="carouselExampleControls" class="carousel slide h-100" data-bs-ride="carousel">
-            <div class="carousel-inner h-100 w-100">
-                <div class="carousel-item active h-100">
-                    <div class="position-relative h-100">
-                        <img src="{{ asset('assets/images/slider1.jpg') }}" class="d-block w-100 h-100" alt="slider1">
-                        <div class="position-absolute top-0 start-0 w-100 h-100"
-                            style="background-color: rgba(44, 39, 82,0.3);"></div>
-                    </div>
-                    <div class="carousel-caption">
-                        <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Explore | Learn | Grow |
-                            Achieve</h2>
-                        <p class="mt-4" style="font-size: 2vw; font-weight: 700;">Turning aspirations into
-                            achievements</p>
-                        <a href="{{ route('services') }}" class="btn-custom-without-hover2"
-                            style="font-size: 1rem;">Find Out More</a>
-                    </div>
+    @php
+        $sliders = $home?->where('section_name', 'hero')->first()?->content['sliders'] ?? [];
+    @endphp
+    @if (count($sliders) > 0)
+        <div style="height:75vh;width:100vw;">
+            <div id="carouselExampleControls" class="carousel slide h-100" data-bs-ride="carousel">
+                <div class="carousel-inner h-100 w-100">
+                    @foreach ($sliders as $index => $slider)
+                        <div class="carousel-item h-100 {{ $index == 0 ? 'active' : '' }}">
+                            <div class="position-relative h-100">
+                                <img src="{{ $slider['image'] ?? '' }}" class="d-block w-100 h-100" alt="slider1">
+                                <div class="position-absolute top-0 start-0 w-100 h-100"
+                                    style="background-color: rgba(44, 39, 82,0.3);"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">
+                                    {{ $slider['title'] ?? '' }}
+                                </h2>
+                                <p class="mt-4" style="font-size: 2vw; font-weight: 700;">
+                                    {{ $slider['description'] ?? '' }}</p>
+                                <a href="{{ $slider['buttonLink'] }}" class="btn-custom-without-hover2"
+                                    style="font-size: 1rem;">{{ $slider['buttonText'] }}</a>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="carousel-item h-100">
-                    <div class="position-relative h-100">
-                        <img src="{{ asset('assets/images/slider5.jpg') }}" class="d-block w-100 h-100" alt="slider5">
-                        <div class="position-absolute top-0 start-0 w-100 h-100"
-                            style="background-color: rgba(44, 39, 82,0.3);"></div>
-                    </div>
-                    <div class="carousel-caption">
-                        <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Pursue Education Abroad</h2>
-                        <p class="mt-4" style="font-size: 1.5vw; font-weight: 500;">Unlock a world of possibilities
-                        </p>
-                        <a href="{{ route('country') }}" class="btn-custom-without-hover2"
-                            style="font-size: 1rem;">Discover More</a>
-                    </div>
-                </div>
-                <div class="carousel-item h-100">
-                    <div class="position-relative h-100">
-                        <img src="{{ asset('assets/images/slider6.jpg') }}" class="d-block w-100 h-100" alt="slider6">
-                        <div class="position-absolute top-0 start-0 w-100 h-100"
-                            style="background-color: rgba(44, 39, 82,0.5);"></div>
-                    </div>
-                    <div class="carousel-caption">
-                        <h2 class="text-white" style="font-size: 4vw; font-weight: 700;">Build Your Career Overseas</h2>
-                        <p class="mt-2" style="font-size: 1.5vw; font-weight: 500;">Step up to global opportunities
-                        </p>
-                        <a href="{{ route('country') }}" class="btn-custom-without-hover2"
-                            style="font-size: 1rem;">Learn More</a>
-                    </div>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
-    </div>
+    @endif
 
 
     <!-- About Us -->
+    @php
+        $about = $home?->where('section_name', 'about')->first()?->content ?? [];
+    @endphp
     <section id="about-us" class="py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="p-4 bg-white shadow rounded">
-                        <img src="{{ asset('assets/images/about-us.jpg') }}" alt="About ISUK"
-                            class="img-fluid rounded">
+                        <img src="{{ $about['image'] ?? '' }}" alt="About ISUK" class="img-fluid rounded">
                     </div>
                 </div>
                 <div class="col-md-6 mt-4 mt-md-0">
-                    <h2 class="mb-4 text-primary" style="font-size: 2rem; font-weight: bold;">About
-                        ISUK</h2>
-                    <p class="lead mb-4" style="font-size: 1.2rem; font-weight: 600;">Connecting your aspirations with
-                        reality...!</p>
-                    <p class="mb-4" style="font-size: 1rem;">Are you considering relocating abroad? That’s
-                        fantastic!</p>
-                    <p class="mb-4" style="font-size: 1rem;">We are here to assist you. ISUK is a leading
-                        consultancy, recognized for offering exceptional guidance and support to help you achieve your
-                        dreams of living in the West.</p>
-                    <p class="mb-4" style="font-size: 1rem;">What sets us apart is our dedicated team and our
-                        vision. We dream big, and we empower you not just to envision your goals but to turn them into
-                        reality.</p>
+                    <h2 class="mb-4 text-primary" style="font-size: 2rem; font-weight: bold;">
+                        {{ $about['heading'] ?? '' }}</h2>
+                    <p class="lead mb-4" style="font-size: 1.2rem; font-weight: 600;">{{ $about['subHeading'] ?? '' }}
+                    </p>
+                    <p class="mb-4" style="font-size: 1rem;">{{ $about['firstPara'] ?? '' }}</p>
+                    <p class="mb-4" style="font-size: 1rem;">{{ $about['secondPara'] ?? '' }}</p>
+                    <p class="mb-4" style="font-size: 1rem;">{{ $about['thirdPara'] ?? '' }}</p>
                     <div class="mt-4">
-                        <a href="{{ route('about') }}" class="btn-custom-hover">Learn More</a>
+                        <a href="{{ $about['buttonLink'] ?? '' }}"
+                            class="btn-custom-hover">{{ $about['buttonText'] ?? '' }}</a>
                     </div>
                 </div>
             </div>
@@ -355,98 +333,51 @@
     </section>
 
     <!-- Services -->
+    @php
+        $services = $home?->where('section_name', 'services')->first()?->content ?? [];
+    @endphp
     <section class="services bg-light position-relative">
-        <h2 class="text-center text-white mb-5" style="font-size: 2rem;">Our Services</h2>
+        <h2 class="text-center text-white mb-5" style="font-size: 2rem;">{{ $services['heading'] ?? '' }}</h2>
         <div class="container py-5">
             <div class="row justify-content-around g-4">
-                <!-- Study Abroad Section -->
-                <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3 d-flex flex-column">
-                    <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
-                        style="width: 60px; height: 60px; position: relative; top: -30px;">
-                        <i class="fas fa-user-graduate fa-2x text-white"></i>
+                @foreach ($services['services'] as $service)
+                    <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3 d-flex flex-column">
+                        <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
+                            style="width: 60px; height: 60px; position: relative; top: -30px;">
+                            <i class="fas fa-user-graduate fa-2x text-white"></i>
+                        </div>
+                        <h3 class="h5 text-primary">{{ $service['title'] }}</h3>
+                        <hr class="w-50 mx-auto">
+                        <p>{{ $service['description'] }}</p>
+                        <div class="mt-auto">
+                            <a href="{{ $service['buttonLink'] }}"
+                                class="btn-custom-hover">{{ $service['buttonText'] }}</a>
+                        </div>
                     </div>
-                    <h3 class="h5 text-primary">Study Abroad</h3>
-                    <hr class="w-50 mx-auto">
-                    <p>Discover a wide range of international education opportunities. We assist you in finding your
-                        ideal course at top universities worldwide. Our knowledgeable advisors will support you from
-                        your initial free consultation all the way to your admission.</p>
-                    <div class="mt-auto">
-                        <a href="{{ route('services') }}" class="btn-custom-hover">Discover More</a>
-                    </div>
-                </div>
-
-                <!-- Travel Around Section -->
-                <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3 d-flex flex-column">
-                    <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
-                        style="width: 60px; height: 60px; position: relative; top: -30px;">
-                        <i class="fas fa-plane fa-2x text-white"></i>
-                    </div>
-                    <h3 class="h5 text-primary">Travel the World</h3>
-                    <hr class="w-50 mx-auto">
-                    <p>Embark on global adventures and satisfy your wanderlust. We offer comprehensive travel assistance
-                        to help you realize all your travel aspirations. From visa support to accommodation
-                        arrangements, our travel specialists are here to ensure your journey is seamless.</p>
-                    <div class="mt-auto">
-                        <a href="{{ route('services') }}" class="btn-custom-hover mb-3">Discover More</a>
-                    </div>
-                </div>
-
-                <!-- Settle Anywhere Section -->
-                <div class="col-md-3 col-sm-12 text-center bg-white mb-4 pb-3 d-flex flex-column">
-                    <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-white"
-                        style="width: 60px; height: 60px; position: relative; top: -30px;">
-                        <i class="fas fa-user-friends fa-2x text-white"></i>
-                    </div>
-                    <h3 class="h5 text-primary">Relocate Anywhere</h3>
-                    <hr class="w-50 mx-auto">
-                    <p>Thinking about moving abroad? We provide expert guidance on all immigration services in just a
-                        few simple steps. We manage all necessary paperwork and requirements to help you settle in your
-                        desired country. Just tell us where you want to go, and we’ll take care of the rest.</p>
-                    <div class="mt-auto">
-                        <a href="{{ route('services') }}" class="btn-custom-hover mb-3">Discover More</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
 
     <!-- Counter -->
+    @php
+        $counter = $home?->where('section_name', 'counter')->first()?->content ?? [];
+    @endphp
     <section class="counter-section position-relative py-5">
-        <h2 class="text-primary text-center fw-bold mb-5" style="font-size: 2rem;">The ISUK Advantages</h2>
+        <h2 class="text-primary text-center fw-bold mb-5" style="font-size: 2rem;">{{ $counter['heading'] ?? '' }}
+        </h2>
         <div class="container mb-2">
             <div class="row text-center">
-                <!-- Counter Box -->
-                <div class="col-6 col-md-3 mb-4 mb-md-0">
-                    <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-primary"><span class="counter-value"
-                                data-count="7500">0</span>+</h2>
-                        <p class="fs-5 mt-2">Students</p>
+                @foreach ($counter['counters'] as $item)
+                    <!-- Counter Box -->
+                    <div class="col-6 col-md-3 mb-4 mb-md-0">
+                        <div class="counter p-3 border border-secondary rounded shadow-sm">
+                            <h2 class="display-5 fw-bold text-primary"><span class="counter-value"
+                                    data-count="{{ $item['number'] }}">0</span>+</h2>
+                            <p class="fs-5 mt-2">{{ $item['title'] }}</p>
+                        </div>
                     </div>
-                </div>
-                <!-- Counter Box -->
-                <div class="col-6 col-md-3 mb-4 mb-md-0">
-                    <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-primary"><span class="counter-value"
-                                data-count="127">0</span></h2>
-                        <p class="fs-5 mt-2">Universities</p>
-                    </div>
-                </div>
-                <!-- Counter Box -->
-                <div class="col-6 col-md-3 mb-4 mb-md-0">
-                    <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-primary"><span class="counter-value"
-                                data-count="81">0</span></h2>
-                        <p class="fs-5 mt-2">Countries</p>
-                    </div>
-                </div>
-                <!-- Counter Box -->
-                <div class="col-6 col-md-3 mb-4 mb-md-0">
-                    <div class="counter p-3 border border-secondary rounded shadow-sm">
-                        <h2 class="display-5 fw-bold text-primary"><span class="counter-value"
-                                data-count="7500">0</span>+</h2>
-                        <p class="fs-5 mt-2">Immigrations</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -484,105 +415,55 @@
     </script>
 
     <!-- Destination -->
+    @php
+        $country = $home?->where('section_name', 'country')->first()?->content ?? [];
+    @endphp
     <div id="destination">
         <div class="container py-5">
-            <h2 class="text-primary text-center mb-4 fw-bold" style="font-size: 2rem;">Top Destinations</h2>
+            <h2 class="text-primary text-center mb-4 fw-bold" style="font-size: 2rem;">
+                {{ $country['heading'] ?? '' }}</h2>
             <p class="lead text-primary text-center mb-5" style="font-size: 1rem;">
-                Dreaming of an international life? The world is vast and full of opportunities. Discover the endless
-                possibilities awaiting you.
+                {{ $country['subHeading'] ?? '' }}
             </p>
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card h-100 text-center text-white bg-dark card-animate">
-                        <div class="card-header bg-opacity-50" style="background-color: rgba(0, 0, 0, 0.6);">
-                            <h5 class="fw-bold">USA</h5>
-                        </div>
-                        <div class="card-body bg-dark">
-                            <p class="card-text fw-bold">The USA is renowned for its innovation and entrepreneurial
-                                spirit, making it a land of vast opportunities and global influence.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center text-white bg-dark card-animate">
-                        <div class="card-header bg-opacity-50" style="background-color: rgba(0, 0, 0, 0.6);">
-                            <h5 class="fw-bold">United Kingdom</h5>
-                        </div>
-                        <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
-                            <p class="card-text fw-bold">The UK boasts a prestigious array of educational institutions,
-                                including globally acclaimed universities such as Oxford and Cambridge.</p>
+                @foreach ($country['countries'] as $item)
+                    <div class="col">
+                        <div class="card h-100 text-center text-white bg-dark card-animate">
+                            <div class="card-header bg-opacity-50" style="background-color: rgba(0, 0, 0, 0.6);">
+                                <h5 class="fw-bold">{{ $item['title'] }}</h5>
+                            </div>
+                            <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
+                                <p class="card-text fw-bold">{{ $item['description'] }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center text-white bg-dark card-animate">
-                        <div class="card-header bg-opacity-50" style="background-color: rgba(0, 0, 0, 0.6);">
-                            <h5 class="fw-bold">Canada</h5>
-                        </div>
-                        <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
-                            <p class="card-text fw-bold">Canada is renowned for its excellent quality of life and
-                                thriving tech sector, making it a top choice for immigrants.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center text-white bg-dark card-animate">
-                        <div class="card-header bg-opacity-50" style="background-color: rgba(0, 0, 0, 0.6);">
-                            <h5 class="fw-bold">New Zealand</h5>
-                        </div>
-                        <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
-                            <p class="card-text fw-bold">New Zealand is celebrated for its excellent education system
-                                and retirement options, offering a blend of cultural richness and breathtaking
-                                landscapes.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center text-white bg-dark card-animate">
-                        <div class="card-header bg-opacity-50" style="background-color: rgba(0, 0, 0, 0.6);">
-                            <h5 class="fw-bold">Australia</h5>
-                        </div>
-                        <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
-                            <p class="card-text fw-bold">Australia is renowned for its top-tier education, excellent
-                                retirement options, and vibrant travel experiences, making it a favored destination for
-                                immigrants globally.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center text-white bg-dark card-animate">
-                        <div class="card-header bg-opacity-50" style="background-color: rgba(0, 0, 0, 0.6);">
-                            <h5 class="fw-bold">Europe</h5>
-                        </div>
-                        <div class="card-body" style="background-color: rgba(0, 0, 0, 0.3);">
-                            <p class="card-text fw-bold">Europe offers a unique blend of historical richness, cultural
-                                diversity, and stunning landscapes, making it an ideal destination for both travel and
-                                living.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
     <!-- Destination -->
 
     <!-- Section -->
+    @php
+        $contact = $home?->where('section_name', 'contact')->first()?->content ?? [];
+    @endphp
     <section class="consultation-section d-flex align-items-center"
         style="background: linear-gradient(to right, #ba020d, #ff6f61); min-height: 60vh;">
         <div class="container text-center text-white d-flex flex-column align-items-center justify-content-center">
             <div class="row w-100">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <h2 class="fw-bold mb-3" style="font-size: 2rem;">
-                        Discover the Paths, Illuminate the Paths, Guide the Paths...!
+                        {{ $contact['heading'] ?? '' }}
                     </h2>
                     <p class="mb-4" style="font-size: 1rem; line-height: 1.8;">
-                        Your one-stop solution for all your international living needs and aspirations.
+                        {{ $contact['firstPara'] ?? '' }}
                     </p>
                     <p class="mb-4" style="font-size: 1rem; line-height: 1.8;">
-                        Your comprehensive resource for achieving your international living aspirations and dreams.
+                        {{ $contact['secondPara'] ?? '' }}
                     </p>
-                    <a href="{{ route('contact') }}" class="btn-custom-without-hover2" style="font-size: 1rem;">
-                        Get Consultation
+                    <a href="{{ $contact['buttonLink'] ?? '' }}" class="btn-custom-without-hover2"
+                        style="font-size: 1rem;">
+                        {{ $contact['buttonText'] ?? '' }}
                     </a>
                 </div>
             </div>
@@ -597,14 +478,13 @@
             <div class="row">
                 <!-- About Section -->
                 <div class="col-md-4 mb-4 mb-md-0 text-center">
-                    <img src="{{ asset('assets/images/logo (2).png') }}" alt="ISUK Logo"
+                    <img src="{{ $headerFooter?->content['logo'] ?? '' }}" alt="ISUK Logo"
                         class="img-fluid mb-3 mx-auto" style="">
                     <p class="text-white mb-2" style="font-size: 1rem;">
-                        We help you discover the ideal destinations to achieve your aspirations.
+                        {{ $headerFooter?->content['firstPara'] ?? '' }}
                     </p>
                     <p class="text-white" style="font-size: 1rem;">
-                        Partnering with over 65 countries, we guarantee a smooth journey and help you achieve your goals
-                        with excellence.
+                        {{ $headerFooter?->content['secondPara'] ?? '' }}
                     </p>
                 </div>
                 <!-- Contact Section -->
@@ -617,13 +497,14 @@
                         <li class="mb-2">
                             <span class="text-white" style="font-size: 1rem;">
                                 <i class="fab fa-whatsapp"></i> WhatsApp:
-                                <a href="tel:+447404929210" class="text-decoration-none">+447466330705</a>
+                                <a href="tel:+{{ $headerFooter?->content['footerNumber'] ?? '' }}"
+                                    class="text-decoration-none">+{{ $headerFooter?->content['footerNumber'] ?? '' }}</a>
                             </span>
                         </li>
                         <li class="mb-2">
                             <span class="text-white" style="font-size: 1rem;">E-mail:
-                                <a href="mailto:info@isukconsultancy.co.uk"
-                                    class="text-decoration-none">info@isukconsultancy.co.uk</a>
+                                <a href="mailto:{{ $headerFooter?->content['footerEmail'] ?? '' }}"
+                                    class="text-decoration-none">{{ $headerFooter?->content['footerEmail'] ?? '' }}</a>
                             </span>
                         </li>
                     </ul>

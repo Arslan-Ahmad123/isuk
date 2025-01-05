@@ -1,4 +1,7 @@
 <div>
+    @php
+        $hero = $about?->where('section_name', 'hero')->first()?->content ?? [];
+    @endphp
     <style>
         footer {
             background-color: #f8f9fa !important;
@@ -119,7 +122,7 @@
         }
 
         .hero-section {
-            background: url('{{ asset('assets/images/about-hero.jpg') }}') center/cover no-repeat;
+            background: url('{{ $hero['image'] ?? '' }}') center/cover no-repeat;
             position: relative;
             height: 80vh;
             display: flex;
@@ -157,7 +160,7 @@
     <header class="d-flex flex-wrap justify-content-center bg-primary">
         <nav class="navbar navbar-expand-lg navbar-light w-100 px-4">
             <a class="navbar-brand text-white fw-bold" href="{{ route('home') }}">
-                <img class="img-fluid" src="{{ asset('assets/images/logo (2).png') }}" alt="ISUK Consultancy Logo"
+                <img class="img-fluid" src="{{ $headerFooter?->content['logo'] ?? '' }}" alt="ISUK Consultancy Logo"
                     style="width: 130px; height: auto;">
             </a>
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -194,36 +197,38 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <h1>Your Trusted Partner for Education & Immigration</h1>
-            <p>Empowering your dreams of studying and settling abroad with expert guidance and seamless processes.</p>
+            <h1>{{ $hero['title'] ?? '' }}</h1>
+            <p>{{ $hero['description'] ?? '' }}</p>
         </div>
     </section>
 
     <!-- Mission Section -->
+    @php
+        $details = $about?->where('section_name', 'details')->first()?->content['details'] ?? [];
+    @endphp
     <section class="py-5 mission-section">
         <div class="container">
             <div class="row text-center">
-                <div class="col-md-6 mb-4">
-                    <h2 class="text-primary">Our Mission</h2>
-                    <p class="mt-3">To provide aspiring individuals with personalized and reliable guidance for
-                        achieving their educational and immigration goals with utmost integrity and professionalism.</p>
-                </div>
-                <div class="col-md-6">
-                    <h2 class="text-primary">Our Vision</h2>
-                    <p class="mt-3">To be the most trusted consultancy worldwide, known for turning dreams into
-                        reality and creating a bridge for opportunities across borders.</p>
-                </div>
+                @foreach ($details as $detail)
+                    <div class="col-md-6 mb-4">
+                        <h2 class="text-primary">{{ $detail['title'] ?? '' }}</h2>
+                        <p class="mt-3">{{ $detail['description'] ?? '' }}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
 
     <!-- Call-to-Action Section -->
+    @php
+        $contact = $about?->where('section_name', 'contact')->first()?->content ?? [];
+    @endphp
     <section class="py-5 bg-primary text-white call-to-action-section">
         <div class="container text-center">
-            <h2 class="cta-heading">Ready to Start Your Journey?</h2>
-            <p class="cta-text mt-3">Contact us today to schedule a consultation and take the first step towards your
-                dream!</p>
-            <a href="{{ route('contact') }}" class="btn btn-light mt-3 cta-button">Get in Touch</a>
+            <h2 class="cta-heading">{{ $contact['heading'] ?? '' }}</h2>
+            <p class="cta-text mt-3">{{ $contact['subHeading'] ?? '' }}</p>
+            <a href="{{ $contact['buttonLink'] ?? route('contact') }}"
+                class="btn btn-light mt-3 cta-button">{{ $contact['buttonText'] ?? 'Get in Touch' }}</a>
         </div>
     </section>
 
@@ -232,14 +237,14 @@
         <div class="container py-5">
             <div class="row">
                 <!-- About Section -->
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <img src="{{ asset('assets/images/logo (2).png') }}" alt="ISUK Logo" class="img-fluid mb-3">
+                <div class="col-md-4 mb-4 mb-md-0 text-center">
+                    <img src="{{ $headerFooter?->content['logo'] ?? '' }}" alt="ISUK Logo"
+                        class="img-fluid mb-3 mx-auto" style="">
                     <p class="text-white mb-2" style="font-size: 1rem;">
-                        We assist you in finding the best destinations to fulfill your dreams.
+                        {{ $headerFooter?->content['firstPara'] ?? '' }}
                     </p>
                     <p class="text-white" style="font-size: 1rem;">
-                        With partnerships in over 65 countries, we ensure your journey is seamless and your goals are
-                        achieved with excellence.
+                        {{ $headerFooter?->content['secondPara'] ?? '' }}
                     </p>
                 </div>
                 <!-- Contact Section -->
@@ -252,13 +257,14 @@
                         <li class="mb-2">
                             <span class="text-white" style="font-size: 1rem;">
                                 <i class="fab fa-whatsapp"></i> WhatsApp:
-                                <a href="tel:+447404929210" class="text-decoration-none">+447466330705</a>
+                                <a href="tel:+{{ $headerFooter?->content['footerNumber'] ?? '' }}"
+                                    class="text-decoration-none">+{{ $headerFooter?->content['footerNumber'] ?? '' }}</a>
                             </span>
                         </li>
                         <li class="mb-2">
                             <span class="text-white" style="font-size: 1rem;">E-mail:
-                                <a href="mailto:info@isukconsultancy.co.uk"
-                                    class="text-decoration-none">info@isukconsultancy.co.uk</a>
+                                <a href="mailto:{{ $headerFooter?->content['footerEmail'] ?? '' }}"
+                                    class="text-decoration-none">{{ $headerFooter?->content['footerEmail'] ?? '' }}</a>
                             </span>
                         </li>
                     </ul>

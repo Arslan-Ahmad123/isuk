@@ -2,10 +2,16 @@
 
 use App\Http\Controllers\TimezoneController;
 use App\Livewire\AboutPage;
+use App\Livewire\Admin\About;
+use App\Livewire\Admin\Contact;
+use App\Livewire\Admin\Country;
 use App\Livewire\ContactPage;
 use App\Livewire\CountryPage;
 use App\Livewire\Dashboard\Dashboard\Dashboard;
-use App\Livewire\HeaderFooter;
+use App\Livewire\Admin\HeaderFooter;
+use App\Livewire\Admin\Home;
+use App\Livewire\Admin\Services;
+use App\Livewire\Admin\Setting;
 use App\Livewire\HealthCarePage;
 use App\Livewire\HomePage;
 use App\Livewire\Login;
@@ -61,7 +67,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::get('/', Dashboard::class)->name('dashboard');
-        Route::get('/page', HeaderFooter::class)->name('header-footer');
+        Route::get('/setting', Setting::class)->name('setting');
+        Route::get('/header-footer', HeaderFooter::class)->name('header-footer');
+        Route::get('/home', Home::class)->name('admin.home');
+        Route::get('/about', About::class)->name('admin.about');
+        Route::get('/services', Services::class)->name('admin.services');
+        Route::get('/country', Country::class)->name('admin.country');
+        Route::get('/contact', Contact::class)->name('admin.contact');
     });
 
 

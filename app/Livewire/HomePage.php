@@ -2,12 +2,18 @@
 
 namespace App\Livewire;
 
+use App\Traits\PageTrait;
 use Livewire\Component;
 
 class HomePage extends Component
 {
+    use PageTrait;
     public function render()
     {
-        return view('livewire.home-page');
+        $pages = $this->allPages();
+        return view('livewire.home-page',[
+            'home' => $pages?->where('page_name', 'home'),
+            'headerFooter' => $pages?->where('page_name', 'header_footer')?->first(),
+        ]);
     }
 }

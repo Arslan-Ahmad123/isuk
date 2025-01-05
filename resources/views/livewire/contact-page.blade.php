@@ -116,7 +116,7 @@
     <header class="d-flex flex-wrap justify-content-center bg-primary">
         <nav class="navbar navbar-expand-lg navbar-light w-100 px-4">
             <a class="navbar-brand text-white fw-bold" href="{{ route('home') }}">
-                <img class="img-fluid" src="{{ asset('assets/images/logo (2).png') }}" alt="ISUK Consultancy Logo"
+                <img class="img-fluid" src="{{ $headerFooter?->content['logo'] ?? '' }}" alt="ISUK Consultancy Logo"
                     style="width: 130px; height: auto;">
             </a>
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -151,21 +151,30 @@
     </header>
 
     <!-- Hero Section -->
+    @php
+        $hero = $contact?->where('section_name', 'hero')->first()?->content ?? [];
+    @endphp
     <section class="hero-section bg-secondary text-white py-5 d-flex align-items-center justify-content-center"
-        style="background-image: url('{{ asset('assets/images/contact-hero-section.jpg') }}'); background-size: cover; background-position: center; height: 80vh;">
+        style="background-image: url('{{ $hero['image'] ?? '' }}'); background-size: cover; background-position: center; height: 80vh;">
         <div class="container text-center">
-            <h1 class="display-4 fw-bold">Get in Touch with Us</h1>
-            <p class="lead mt-3">We are here to assist you with all your education and immigration needs.</p>
+            <h1 class="display-4 fw-bold">{{ $hero['title'] ?? '' }}</h1>
+            <p class="lead mt-3">
+                {{ $hero['description'] ?? '' }}
+            </p>
         </div>
     </section>
 
     <!-- Contact Information Section -->
+    @php
+        $contact1 = $contact?->where('section_name', 'contact')->first()?->content ?? [];
+    @endphp
     <section class="section section-bg-light">
         <div class="container">
             <div class="text-center mb-4">
-                <h2 class="section-title">Contact Information</h2>
-                <p class="mt-3">Reach out to us through any of the following methods. We look forward to hearing from
-                    you!</p>
+                <h2 class="section-title">{{ $contact1['heading'] ?? '' }}</h2>
+                <p class="mt-3">
+                    {{ $contact1['subHeading'] ?? '' }}
+                </p>
             </div>
             <div class="row justify-content-around">
                 <div class="col-md-5 mb-4 text-center">
@@ -173,7 +182,7 @@
                         <i class="fas fa-phone-alt fa-2x text-primary me-3"></i>
                         <div>
                             <h5 class="mb-1">Phone</h5>
-                            <p class="mb-0">+447466330705</p>
+                            <p class="mb-0">+{{ $contact1['number'] ?? '' }}</p>
                         </div>
                     </div>
                 </div>
@@ -182,7 +191,7 @@
                         <i class="fas fa-envelope fa-2x text-primary me-3"></i>
                         <div>
                             <h5 class="mb-1">Email</h5>
-                            <p class="mb-0">info@isukconsultancy.co.uk</p>
+                            <p class="mb-0">{{ $contact1['email'] ?? '' }}</p>
                         </div>
                     </div>
                 </div>
@@ -238,14 +247,14 @@
         <div class="container py-5">
             <div class="row">
                 <!-- About Section -->
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <img src="{{ asset('assets/images/logo (2).png') }}" alt="ISUK Logo" class="img-fluid mb-3">
+                <div class="col-md-4 mb-4 mb-md-0 text-center">
+                    <img src="{{ $headerFooter?->content['logo'] ?? '' }}" alt="ISUK Logo"
+                        class="img-fluid mb-3 mx-auto" style="">
                     <p class="text-white mb-2" style="font-size: 1rem;">
-                        We assist you in finding the best destinations to fulfill your dreams.
+                        {{ $headerFooter?->content['firstPara'] ?? '' }}
                     </p>
                     <p class="text-white" style="font-size: 1rem;">
-                        With partnerships in over 65 countries, we ensure your journey is seamless and your goals are
-                        achieved with excellence.
+                        {{ $headerFooter?->content['secondPara'] ?? '' }}
                     </p>
                 </div>
                 <!-- Contact Section -->
@@ -258,13 +267,14 @@
                         <li class="mb-2">
                             <span class="text-white" style="font-size: 1rem;">
                                 <i class="fab fa-whatsapp"></i> WhatsApp:
-                                <a href="tel:+447404929210" class="text-decoration-none">+447466330705</a>
+                                <a href="tel:+{{ $headerFooter?->content['footerNumber'] ?? '' }}"
+                                    class="text-decoration-none">+{{ $headerFooter?->content['footerNumber'] ?? '' }}</a>
                             </span>
                         </li>
                         <li class="mb-2">
                             <span class="text-white" style="font-size: 1rem;">E-mail:
-                                <a href="mailto:info@isukconsultancy.co.uk"
-                                    class="text-decoration-none">info@isukconsultancy.co.uk</a>
+                                <a href="mailto:{{ $headerFooter?->content['footerEmail'] ?? '' }}"
+                                    class="text-decoration-none">{{ $headerFooter?->content['footerEmail'] ?? '' }}</a>
                             </span>
                         </li>
                     </ul>

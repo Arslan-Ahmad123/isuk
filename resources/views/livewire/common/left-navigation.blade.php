@@ -42,9 +42,51 @@
             <ul class="mt-2 side-nav">
                 {{-- @forelse($modules as  $module) --}}
                 <li class="side-nav-item text-center mb-2 pt-1 px-1">
+                    <a href="{{ route('dashboard') }}" class="text-white lh-1">
+                        <span class="p-0 m-0"><i class="fas fa-info-circle fs-3 d-block"></i></span>
+                        <div class="left-navbar-name">Dashboard</div>
+                    </a>
+                </li>
+                <li class="side-nav-item text-center mb-2 pt-1 px-1">
+                    <a href="{{ route('setting') }}" class="text-white lh-1">
+                        <span class="p-0 m-0"><i class="fas fa-info-circle fs-3 d-block"></i></span>
+                        <div class="left-navbar-name">Setting</div>
+                    </a>
+                </li>
+                <li class="side-nav-item text-center mb-2 pt-1 px-1">
                     <a href="{{ route('header-footer') }}" class="text-white lh-1">
                         <span class="p-0 m-0"><i class="fas fa-info-circle fs-3 d-block"></i></span>
                         <div class="left-navbar-name">Header Footer</div>
+                    </a>
+                </li>
+                <li class="side-nav-item text-center mb-2 pt-1 px-1">
+                    <a href="{{ route('admin.home') }}" class="text-white lh-1">
+                        <span class="p-0 m-0"><i class="fas fa-info-circle fs-3 d-block"></i></span>
+                        <div class="left-navbar-name">Home</div>
+                    </a>
+                </li>
+                <li class="side-nav-item text-center mb-2 pt-1 px-1">
+                    <a href="{{ route('admin.about') }}" class="text-white lh-1">
+                        <span class="p-0 m-0"><i class="fas fa-info-circle fs-3 d-block"></i></span>
+                        <div class="left-navbar-name">About</div>
+                    </a>
+                </li>
+                <li class="side-nav-item text-center mb-2 pt-1 px-1">
+                    <a href="{{ route('admin.services') }}" class="text-white lh-1">
+                        <span class="p-0 m-0"><i class="fas fa-info-circle fs-3 d-block"></i></span>
+                        <div class="left-navbar-name">Services</div>
+                    </a>
+                </li>
+                <li class="side-nav-item text-center mb-2 pt-1 px-1">
+                    <a href="{{ route('admin.country') }}" class="text-white lh-1">
+                        <span class="p-0 m-0"><i class="fas fa-info-circle fs-3 d-block"></i></span>
+                        <div class="left-navbar-name">Country</div>
+                    </a>
+                </li>
+                <li class="side-nav-item text-center mb-2 pt-1 px-1">
+                    <a href="{{ route('admin.contact') }}" class="text-white lh-1">
+                        <span class="p-0 m-0"><i class="fas fa-info-circle fs-3 d-block"></i></span>
+                        <div class="left-navbar-name">Contact</div>
                     </a>
                 </li>
                 {{-- @empty
