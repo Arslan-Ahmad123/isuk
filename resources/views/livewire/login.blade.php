@@ -5,9 +5,9 @@
 
                 <!-- Logo -->
                 <div class="py-3 text-center card-header bg-dark">
-                    {{-- <a href="{{ route('login') }}"> --}}
-                    {{-- <span><img src="{{ asset(AppConst::ASSET_LOGO) }}" alt="logo" height="50"></span> --}}
-                    {{-- </a> --}}
+                    <a href="{{ route('login') }}">
+                    <span><img src="{{ asset('assets/images/logo (2).png') }}" alt="logo" height="50"></span>
+                    </a>
                 </div>
 
                 <div class="p-4 card-body">
