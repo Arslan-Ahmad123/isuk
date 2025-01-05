@@ -56,7 +56,7 @@ class Home extends Component
         ]);
 
         $fileName = uniqid() . '.' . $this->newImage->getClientOriginalExtension();
-        $filePath = $this->newImage->storeAs('public/images', $fileName);
+        $filePath = $this->newImage->storeAs('images', $fileName,'public');
 
         if ($this->selectedSection == 'hero' && isset($this->imageIndex)) {
             // Delete the old image from storage

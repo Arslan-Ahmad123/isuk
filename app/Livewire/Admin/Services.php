@@ -44,7 +44,7 @@ class Services extends Component
         ]);
 
         $fileName = uniqid() . '.' . $this->newImage->getClientOriginalExtension();
-        $filePath = $this->newImage->storeAs('public/images', $fileName);
+        $filePath = $this->newImage->storeAs('images', $fileName,'public');
 
         if ($this->selectedSection == 'services' && isset($this->imageIndex)) {
             // Delete the old image from storage

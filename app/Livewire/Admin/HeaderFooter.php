@@ -47,7 +47,7 @@ class HeaderFooter extends Component
         // Handle file upload
         if ($this->logo) {
             $fileName = uniqid() . '.' . $this->logo->getClientOriginalExtension();
-            $filePath = $this->logo->storeAs('public/images', $fileName);
+            $filePath = $this->logo->storeAs('images', $fileName,'public');
             $data['logo'] = url('storage/images/'.$fileName);
         } else {
             $data['logo'] = $this->oldLogo;

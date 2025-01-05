@@ -46,7 +46,7 @@ class Country extends Component
         ]);
 
         $fileName = uniqid() . '.' . $this->newImage->getClientOriginalExtension();
-            $filePath = $this->newImage->storeAs('public/images', $fileName);
+            $filePath = $this->newImage->storeAs('images', $fileName,'public');
 
         if (($this->selectedSection == 'destinations' || $this->selectedSection == 'opportunities') && isset($this->imageIndex)) {
             // Delete the old image from storage

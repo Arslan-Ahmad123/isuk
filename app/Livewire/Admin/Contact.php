@@ -44,7 +44,7 @@ class Contact extends Component
         ]);
 
         $fileName = uniqid() . '.' . $this->newImage->getClientOriginalExtension();
-        $filePath = $this->newImage->storeAs('public/images', $fileName);
+        $filePath = $this->newImage->storeAs('images', $fileName,'public');
 
         // Delete the old image from storage
         $oldImage = $this->sectionData['image'] ?? null;
